@@ -1,6 +1,10 @@
 name: test
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 env:
   FOUNDRY_PROFILE: ci
@@ -17,10 +21,27 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
+
+      - name: Install Forge dependencies
+        run: forge install
 
       - name: Run Forge build
         run: |
