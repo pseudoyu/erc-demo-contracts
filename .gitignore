@@ -15,3 +15,8 @@ docs/
 
 # Node modules
 node_modules
+
+# remix dependencies
+.deps
+.states
+artifacts
