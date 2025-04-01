@@ -2,11 +2,11 @@
 pragma solidity ^0.8.18;
 
 import {Test, console} from "forge-std/Test.sol";
-import {InvisibeGardebNFTY} from "../src/ERC721Y.sol";
+import {MonadTestnetNFTY} from "../src/ERC721Y.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 contract ERC721YTest is Test {
-    InvisibeGardebNFTY public nft;
+    MonadTestnetNFTY public nft;
     address public alice = address(0x1);
     address public bob = address(0x2);
     uint256 public constant INITIAL_TOKEN_ID = 0;
@@ -16,7 +16,7 @@ contract ERC721YTest is Test {
     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
 
     function setUp() public {
-        nft = new InvisibeGardebNFTY("Invisibe Gardeb NFTY", "IGNFTY");
+        nft = new MonadTestnetNFTY("Monad Testnet NFTY", "MTNFTY");
         // Mint initial token to alice
         vm.prank(address(this));
         nft.mint(alice);

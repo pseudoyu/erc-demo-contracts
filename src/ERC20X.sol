@@ -3,7 +3,7 @@ pragma solidity ^0.8.18;
 
 import "./interfaces/IERC20.sol";
 
-contract InvisibeGardebTokenX is IERC20 {
+contract MonadTestnetTokenX is IERC20 {
     string private _name;
     string private _symbol;
     uint8 public constant decimals = 18;
@@ -12,8 +12,8 @@ contract InvisibeGardebTokenX is IERC20 {
     mapping(address => mapping(address => uint256)) private _allowances;
 
     constructor(uint256 initialSupply) {
-        _name = "InvisibeGardebTokenX";
-        _symbol = "IGTX";
+        _name = "MonadTestnetTokenX";
+        _symbol = "MTX";
         _mint(msg.sender, initialSupply);
     }
 

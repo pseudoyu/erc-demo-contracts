@@ -3,7 +3,7 @@ pragma solidity ^0.8.18;
 
 import "./interfaces/IERC721.sol";
 
-contract InvisibeGardebNFTX is IERC721 {
+contract MonadTestnetNFTX is IERC721 {
     mapping(uint256 => address) private _owners;
     mapping(address => uint256) private _balances;
     mapping(uint256 => address) private _tokenApprovals;

@@ -2,11 +2,11 @@
 pragma solidity ^0.8.18;
 
 import {Test, console} from "forge-std/Test.sol";
-import {InvisibeGardebTokenY} from "../src/ERC20Y.sol";
+import {MonadTestnetTokenY} from "../src/ERC20Y.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract ERC20YTest is Test {
-    InvisibeGardebTokenY public token;
+    MonadTestnetTokenY public token;
     address public alice = address(0x1);
     address public bob = address(0x2);
     uint256 public constant INITIAL_SUPPLY = 1000000 * 10 ** 18;
@@ -15,7 +15,7 @@ contract ERC20YTest is Test {
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
     function setUp() public {
-        token = new InvisibeGardebTokenY(INITIAL_SUPPLY);
+        token = new MonadTestnetTokenY(INITIAL_SUPPLY);
         // Transfer initial supply to alice
         vm.expectEmit(true, true, false, true);
         emit Transfer(address(this), alice, INITIAL_SUPPLY);
@@ -58,8 +58,8 @@ contract ERC20YTest is Test {
     }
 
     function testNameAndSymbol() public view {
-        assertEq(token.name(), "InvisibeGardebTokenY");
-        assertEq(token.symbol(), "IGTY");
+        assertEq(token.name(), "MonadTestnetTokenY");
+        assertEq(token.symbol(), "MTY");
     }
 
     function testDecimals() public view {

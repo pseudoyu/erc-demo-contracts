@@ -2,11 +2,11 @@
 pragma solidity ^0.8.18;
 
 import {Test, console} from "forge-std/Test.sol";
-import {InvisibeGardebNFTX} from "../src/ERC721X.sol";
+import {MonadTestnetNFTX} from "../src/ERC721X.sol";
 import {IERC721} from "../src/interfaces/IERC721.sol";
 
 contract ERC721XTest is Test {
-    InvisibeGardebNFTX public nft;
+    MonadTestnetNFTX public nft;
     address public alice = address(0x1);
     address public bob = address(0x2);
     uint256 public constant INITIAL_TOKEN_ID = 0;
@@ -16,7 +16,7 @@ contract ERC721XTest is Test {
     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
 
     function setUp() public {
-        nft = new InvisibeGardebNFTX("Invisibe Gardeb NFTX", "IGNFTX");
+        nft = new MonadTestnetNFTX("Monad Testnet NFTX", "MTNFTX");
         // Mint initial token to alice
         vm.prank(address(this));
         nft.mint(alice);
